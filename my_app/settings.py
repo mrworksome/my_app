@@ -57,6 +57,7 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET = 'ahfp3f40hgCq14NYOqpy'
 
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
 
+# SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -8,9 +8,9 @@
         <!-- Add from here -->
     {% for ass in backends.associated %}
       {% if ass.provider == 'vk-oauth2' %}
-{#        <div class="col-md-6 text-center">#}
-{#            <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">#}
-{#        </div>#}
+        <div class="col-md-6 text-center">
+            <img src="{{core_vkusers.user_photo}}" alt="" width="150" height="150" style="border-radius: 50%">
+        </div>
         <div class="col-md-6 social-container my-2">                 <p> Signed in via:  {{ ass.provider }} </p>
             <p> Name:  {{ user.first_name }} </p>
             <p> Provider url: <a href="{{ass.extra_data.profile_url}}">link</a></p>
