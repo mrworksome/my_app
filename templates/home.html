@@ -5,7 +5,6 @@
     <div class="col-sm-12 mb-3">
        <h4 class="text-center mb-4"> Welcome {{ user.first_name}} {{user.last_name}} </h4>
 
-        <!-- Add from here -->
         <div class="row">
             {% for ass in backends.associated %}
               {% if ass.provider == 'vk-oauth2' %}
@@ -24,6 +23,7 @@
               {% endif %}
             {% endfor %}
         </div>
+
         <div class="row mt-5">
             <form class="form-inline mx-sm-4 mb-1" action="{% url 'search' %}" method="GET">
             <div class="form-group mx-sm-4 mb-1">
