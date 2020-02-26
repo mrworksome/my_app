@@ -11,4 +11,4 @@ class VkUsers(models.Model):
     user_photo = models.CharField(max_length=250, null=True, blank=True)
     count_friends = models.CharField(max_length=5000, null=True, blank=True)
     django_user = models.ForeignKey(User, on_delete=DO_NOTHING, null=True)
-    friends = models.ManyToManyField('self', symmetrical=True)
+    friends = models.ManyToManyField('self', symmetrical=True, related_name='friend')

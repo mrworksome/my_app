@@ -18,6 +18,7 @@ def load(*args, **kwargs):
     if response.status_code == 200:
         response = response.json()
         user.count_friends = response.get("response").get("count")
+        user.save()
         for item in response.get("response").get("items"):
             username = item.get("id")
             first_name = item.get("first_name")

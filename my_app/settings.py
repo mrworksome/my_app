@@ -54,10 +54,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '7331037'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'ahfp3f40hgCq14NYOqpy'
-
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
-
-# SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -155,3 +152,5 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
     'core.load_friends.load',
 )
+
+

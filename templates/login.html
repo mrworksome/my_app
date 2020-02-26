@@ -3,12 +3,6 @@
 {% block content %}
 <div class="row">
     <div class="col-md-8 mx-auto social-container my-2 order-md-1">
-{#        <button class="btn btn-danger  mb-2">#}
-{#            <a href="#">Login with Vkontakte</a>#}
-{#        </button>#}
-{#        <button class="btn btn-info  mb-2">#}
-{#            <a href="#">Login with Vkontakte</a>#}
-{#        </button>#}
         <button class="btn btn-primary  mb-2">
             <a href="{% url 'social:begin' 'vk-oauth2' %}">Login with Vkontakte</a>
         </button>
