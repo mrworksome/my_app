@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from config import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,16 +46,6 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.vk.VKOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
-
-
-SOCIAL_AUTH_VK_OAUTH2_KEY = '7331037'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'ahfp3f40hgCq14NYOqpy'
-SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
