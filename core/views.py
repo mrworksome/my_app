@@ -1,13 +1,7 @@
 import requests
-from django.contrib.auth.views import LogoutView
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from social_django.models import UserSocialAuth
-from social_django.models import UserSocialAuthManager
-from django.contrib.auth import logout as auth_logout
-
-from django.contrib.auth import logout
 
 
 def login(request, **kwargs):
@@ -44,7 +38,7 @@ def search(request):
     if response.status_code == 200:
         response = response.json()
         for item in response.get("response").get("items"):
-            if search_name == item.get("first_name").lowercase():
+            if search_name == item.get("first_name"):
                 friends_with_search_name.append(item)
 
     return render(request, 'home.html', {'friends_by_name': friends_with_search_name,
