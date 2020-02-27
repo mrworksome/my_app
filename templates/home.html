@@ -3,21 +3,20 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-12 mb-3">
-       <h4 class="text-center mb-4"> Welcome {{ user.first_name}} {{user.last_name}} </h4>
+       <h4 class="text-center mb-4"> Welcome {{ vk_user.first_name}} {{vk_user.last_name}} </h4>
 
         <div class="row">
             {% for ass in backends.associated %}
               {% if ass.provider == 'vk-oauth2' %}
                 <div class="col-md-6 text-center">
-                    <img class="mt-4" src="{{ vk_user.user_photo }}" alt="" width="150" height="150" style="border-radius: 50%">
+                    <img class="mt-4" src="{{ vk_user.photo_max }}" alt="" width="150" height="150" style="border-radius: 50%">
                 </div>
                 <div class="col-md-6 social-container my-2">
                     <p> Signed in via:  {{ ass.provider }} </p>
-{#                    <p> Name:  {{ vk_user.first_name }} </p>#}
-                    <p> Count friends:  {{ vk_user.count_friends }} </p>
+                    <p> Count friends:  {{ vk_user.counters.friends }} </p>
                     <p> Provider url: <a href="{{ass.extra_data.profile_url}}">link</a></p>
                     <button class="btn btn-secondary">
-                        <a href="{% url 'logout' %}">Logout</a>
+                        <a href="{% url 'logout_user' %}">Logout</a>
                     </button>
                 </div>
               {% endif %}
@@ -30,14 +29,14 @@
                 <input id="search" type="text" name="name" value="{{ request.name }}" class="form-control" placeholder="Friends Name" />
             </div>
             <button type="submit" value="Search" class="btn btn-primary mb-1">Search</button>
-            <div>
-                {% for friend in friends_by_name %}
-                    {% if friends_by_name %}
-                        <p> - {{ friend.first_name }} {{friend.last_name }} {{ friend.id }}</p>
-                    {% else %}
-                        <p> No friends by this name </p>
-                    {% endif %}
-                {% endfor %}
+            <div class="ml-3">
+                {% if friends_by_name %}
+                    {% for friend in friends_by_name %}
+                        <p class="mx-4"> - {{ friend.first_name }} {{ friend.last_name }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p class="mx-4"> No friends by this name </p>
+                {% endif %}
             </div>
             </form>
         </div>
